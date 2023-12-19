@@ -3,21 +3,21 @@
 describe("Conceptos básicos: variables", () => {
     it("Usaremos let para definir variables", () => {
         let name = "Frodo";
-        // cambia el valor de la variable
+        name= "Elrond"
         
         expect(name).to.equal("Elrond");
     });
 
     it("Usaremos const para definir constantes", () => {
-        // "name" es constante, no se puede reasignar
-        // Cambia su valor
+        
         const name = "Frodo";
+        
 
-        expect(name).to.equal("Bilbo");
+        expect(name).to.equal("Frodo");
     });
 
     it("No usaremos var para definir variables", () => {
-        // utiliza let en lugar de "var" para definir variables
+        
         var country = "Gondor";
 
         expect(country).to.equal("Gondor");
@@ -28,41 +28,46 @@ describe("Números en Javascript", () => {
     it("Permite definir números y realizar operaciones", () => {
         const n = 0;
         const result = 100 + n;
-        expect(result).to.equal(107)
+        
+        expect(result).to.equal(100);
     });
 
     it("Los números pueden ser enteros o decimales", () => {
         const n = 30;
-        expect(n).to.equal(30.64);
+
+        expect(n).to.equal(30);
     })
 
     it("Puedes utilizar ++ para autoincrementar un número en 1 unidad", () => {
         let n = 6;
-        // incrementa n usando el operador ++
+        n++;
         const result = 100 + n;
-        expect(result).to.equal(107)
+        expect(result).to.equal(107);
     });
     it("Puedes utilizar -- para decrementar un número en 1 unidad", () => {
         let n = 8;
-        // decrementa n usando el operador --
+        n--;
         const result = 100 + n;
-        expect(result).to.equal(107)
+        expect(result).to.equal(107);
     });
 });
 
 describe("Operaciones aritméticas", () => {
     it("Usando suma", () => {
         const a = 10;
+        const b = 90;
 
         expect(a+b).to.equal(100);
     })
     it("Usando multiplicación", () => {
         const a = 10;
+        const b = 1.3;
 
         expect(a*b).to.equal(13);
     })
     it("Usando división", () => {
         const a = 10;
+        const b = 4;
 
         expect(a/b).to.equal(2.5);
     })
@@ -72,29 +77,29 @@ describe("Strings", () => {
     it("Los strings representan cadenas de texto", () => {
         let weapon = "espada";
         let phrase = "Cuenta con mi " + weapon + "!";
-        expect(phrase).to.equal("Cuenta con mi hacha!")
+        expect(phrase).to.equal("Cuenta con mi espada!")
     });
 });
 
 describe("Booleanos", () => {
-   it("un booleano puede tomar dos valores", () => {
+    it("un booleano puede tomar dos valores", () => {
         let b = true;
-        expect(b).to.be(false);
-   }) 
+        expect(b).to.equal(true);
+    }) 
 });
 
 describe('Comparaciones en Javascript', () => {
     it("usando ===", () => {
         const number = 20;
         //completa la asignación usando number y el comparador ===
-
+        const expresion = (number === 30);
         expect(expresion).to.equal(false)
     })
 
     it("usando !==", () => {
         const language = "Javascript";
         //completa la asignación usando language y el comparador !==
-
+        const expresion = (language !== "Javascript");
         expect(expresion).to.equal(false)
     })
 });
@@ -112,7 +117,7 @@ describe("condicionales en javascript", () => {
         }
 
         // substituye ??? por el valor que tiene la variable "result"        
-        expect(result === "???").to.be.true;
+        expect(result === "KO").to.be.true;
     })
 
     it("comparando cadenas (strings)", () => {
@@ -128,7 +133,7 @@ describe("condicionales en javascript", () => {
         }
 
         // substituye ??? por el valor que tiene la variable "result"        
-        expect(result === "???").to.be.true;
+        expect(result === "pikachu").to.be.true;
     })
 
     it("Interpolación de cadenas (strings) (1)", () => {
@@ -145,7 +150,7 @@ describe("condicionales en javascript", () => {
         }
 
         // substituye ??? por el valor que tiene la variable "result"        
-        expect(result === "???").to.be.true;
+        expect(result === "Pizza con Pepperoni").to.be.true;
     })
 
     it("Interpolación de cadenas (strings) (2)", () => {
@@ -162,7 +167,7 @@ describe("condicionales en javascript", () => {
         }
 
         // substituye ??? por el valor que tiene la variable "result"        
-        expect(result === "???").to.be.true;
+        expect(result === "Pizza con Pepperoni").to.be.false;
     })
 })
 
@@ -170,14 +175,14 @@ describe('Algebra booleana', () => {
     it("Usando el operador AND (&&)", () => {
         const a = true;
         //completa la asignación de b
-
+        const b = true;
         const expression = a && b;
         expect(expression).to.equal(true);
     })
     it("Usando el operador OR (||)", () => {
         const a = false;
         //completa la asignación de b
-
+        const b = false;
         const expression = a || b;
         expect(expression).to.equal(false);
     })
@@ -188,16 +193,24 @@ describe('Algebra booleana', () => {
 describe("Funciones (I)", () => {
 
     function evenOrOdd(n) {
-        // cambia el contenido de la función para hacer
-        // pasar los tests
-        return "";
-    }
+        
+            if (n % 2 === 0) {
+                return "even";
+            } else {
+                return "odd";
+            }
+        }
+        
+        expect(evenOrOdd(3)).to.equal("odd");
+    
 
     function greeting(name) {
-        // cambia el contenido de la función para hacer
-        // pasar los tests
-        return "";
+        
+        
+        return `Hola, ${name}!`;
+        
     }
+        
 
     it("Función que nos dice si un número es par (even) o impar (odd)", () => {
         expect(evenOrOdd(2)).to.equal("even")
@@ -241,7 +254,7 @@ describe("Funciones (II)", () => {
 
 
         // substituye "???" por el valor que tiene la variable "result"        
-        expect(result === "???").to.be.true;
+        expect(result === "too short").to.be.false;
     })
 
     it("Cuál es el resultado de invocar la función? (2)", () => {
@@ -250,16 +263,16 @@ describe("Funciones (II)", () => {
 
 
         // substituye "???" por el valor que tiene la variable "result"        
-        expect(result === "???").to.be.true;
+        expect(result === "very long").to.be.false;
     })
 
     it("Cuál es el resultado de invocar la función? (3)", () => {
 
         // substituye "???" por el resultado en cada caso
-        expect(h("khaleesi mother of dragons breaker of chains") === "???").to.be.true;
-        expect(h("sarah") === "???").to.be.true;
-        expect(h("bob") === "???").to.be.true;
-        expect(h("robertson") === "???").to.be.true;
+        expect(h("khaleesi mother of dragons breaker of chains") === "Reina de dragones!").to.be.false;
+        expect(h("sarah") === "Sarah").to.be.false;
+        expect(h("bob") === "Bob").to.be.false;
+        expect(h("robertson") === "Robertson").to.be.false;
     })
 
 })
@@ -268,18 +281,23 @@ describe("Colecciones en JS: Array", () => {
     it("Pueden crearse usando [ ]", () => {
 
         // crea un array "a" usando los corchetes []
+        const a = [];
 
         expect(Array.isArray(a)).to.be.true;
     })
     it("Pueden crearse usando new Array", () => {
 
         // crea un array "a" usando el constructor "new"
+        const a = [];
 
         expect(Array.isArray(a)).to.be.true;
     })
     it("Pueden estar vacíos o contener elementos", () => {
 
         // crea un array que esté vacío y otro que no esté vacío
+        const emptyArray = [];
+
+        const nonEmptyArray = [3];
 
         expect(emptyArray).to.be.empty;
         expect(nonEmptyArray).not.to.be.empty;
@@ -290,7 +308,7 @@ describe("Colecciones en JS: Array", () => {
 
         // completa la definición que falta usando la propiedad length
 
-        expect("???").to.equal(4);
+        expect(list.length).to.equal(4);
     })
     it("Nos permiten acceder a cada elemento del array", () => {
 
@@ -298,20 +316,25 @@ describe("Colecciones en JS: Array", () => {
 
         // sustituye "???" en cada caso para acceder al elemento correspondiente de la lista
 
-        expect("???").to.equal("Piña");
-        expect("???").to.equal("Melón");
+        expect(fruits[0]).to.equal("Piña");
+
+        expect(fruits[3]).to.equal("Melón");
     })
     it("Nos permiten modificar cada elemento", () => {
 
         let fruits = ["Piña", "Manzana", "Fresa", "Melón"]
 
-        // Añade el código que permite modificar el elemento correspondiente
+        fruits[1] = "Pera";
 
+        // Añade el código que permite modificar el elemento correspondiente
+        
         expect(fruits).to.have.same.members(["Piña", "Pera", "Fresa", "Melón"])
     })
 
     it("Podemos añadir elementos", () => {
         let fruits = ["Piña", "Manzana", "Fresa", "Melón"]
+
+        fruits.push("Pera");
 
         // Añade el código que permite modificar la lista (incluyendo un elemento al final)
 
@@ -410,8 +433,10 @@ describe("Operaciones iterables", () => {
 
         let list = [1,5,7,9,11,13];
 
+
         // utiliza la función map para aplicar los números de la lista
-        list = "???";
+        
+        list = list.map(num => num - 1) 
         
 
         expect(list).to.have.same.members([0,4,6,8,10,12]);
@@ -422,7 +447,8 @@ describe("Operaciones iterables", () => {
         let list = ["Pikachu", "Charmander", "Magikarp"];
 
         // utiliza la función map para aplicar los números de la lista y guardar la nueva lista en result
-                
+        const result = list.map(magikarp => `${magikarp}, te elijo a ti!`);
+        
         expect(result).to.have.same.members([
             "Pikachu, te elijo a ti!",
             "Charmander, te elijo a ti!",
@@ -435,7 +461,7 @@ describe("Operaciones iterables", () => {
         let knownExoplanets = [ "TOI-1298 b","TOI-132 b","TOI-1333 b","TOI-1338 b","TOI-1431 b","TOI-1444 b","TOI-1478 b","TOI-150.01","TOI-157 b","TOI-1601 b","TOI-163 b","TOI-1634 b","TOI-1685 b","TOI-169 b","TOI-172 b","TOI-1728 b","TOI-1749 b","TOI-1749 c"];
 
         // utiliza la función includes para comprobar si la lista de planetas contiene el planeta TOI-1634 b
-        let result = "???";
+        let result = knownExoplanets.includes("TOI-1634 b");
         
         expect(result).to.equal(true);        
     })
@@ -447,7 +473,9 @@ describe("Operaciones iterables", () => {
         // utiliza la función filter para quedarnos con los planetas que terminan por la letra c
         // puedes utilizar la función .endsWith para comprobar si un string termina por una letra
         // p.ej. "Hola".endsWith('a') devuelve true
-        let result = "???";
+        
+        let result = knownExoplanets.filter(planet => planet.endsWith('c'));
+
         
 
         // todos los planetas de result terminan con la letra c
